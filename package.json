@@ -9,8 +9,7 @@
     "astro": "astro"
   },
   "engines": {
-    "node": ">=20.18.1",
-    "yarn": ">=1.22.22"
+    "node": ">=20.18.1"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.3.0",
