@@ -1,11 +1,45 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import SocialLink from "../components/SocialLink.astro";
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = "Hello, I'm Tej Patel.";
+const description =
+  "I’m a senior frontend guy from Mumbai. I spend my days building fast, smooth apps and websites that just work. Been doing this for a while now—figuring out what looks good, feels good, and runs like butter. I like keeping things clean, simple, and fun to use.";
+const currentJob = "Senior Engineer @ Mosaic Wellness";
+const socialLinks = {
+  github: "https://github.com/tejpatelme",
+  linkedIn: "http://linkedin.com/in/tejpatelme",
+  x: "http://x.com/tejpatel_me",
+  email: "pateltej.me@gmail.com"
+};
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home">
+  <main
+    class="m-auto pt-16 pb-8 pl-4 pr-4 max-w-[600px] w-full dark: text-neutral-200"
+  >
+    <section>
+      <a href={"/"} target="_blank"> </a>
+      <h1 class="mb-8 text-2xl font-medium">{title}</h1>
+      <div class="">
+        <p class="mt-5 mb-5">{description}</p>
+        <p class="mt-5 mb-5"><b>Current</b> • {currentJob}</p>
+      </div>
+    </section>
+    <div class="mt-10 flex gap-5 items-center">
+      <SocialLink href={socialLinks.github}
+        ><Icon name="fa6-brands:github" class="text-[20px]" /></SocialLink
+      >
+      <SocialLink href={socialLinks.linkedIn}
+        ><Icon name="fa6-brands:linkedin-in" class="text-[20px]" /></SocialLink
+      >
+      <SocialLink href={socialLinks.x}
+        ><Icon name="fa6-brands:x-twitter" class="text-[18px]" /></SocialLink
+      >
+      <SocialLink href={socialLinks.email}
+        ><Icon name="ic:baseline-mail" class="text-[22px]" /></SocialLink
+      >
+    </div>
+  </main>
 </Layout>
