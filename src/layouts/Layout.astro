@@ -9,6 +9,9 @@ const meta = {
     "Tej Patel is a skilled Software Engineer from Mumbai, focused on building high-performance user interfaces using React and modern frontend stacks",
   author: "Tej Patel",
 };
+
+// Change this if changing the bg color
+const bgColor = "oklch(20.8% 0.042 265.755)";
 ---
 
 <!doctype html>
@@ -37,6 +40,14 @@ const meta = {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={meta.description} />
     <meta name="author" content={meta.author} />
+
+    <!-- Notification/Status Bar color for dark theme -->
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content={bgColor} />
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content={bgColor} />
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   </head>
   <body class="bg-slate-900">
     <slot />
