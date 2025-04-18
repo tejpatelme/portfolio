@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-// import "@fontsource-variable/manrope";
 
 const { title } = Astro.props;
 
@@ -19,6 +18,21 @@ const meta = {
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
     <title>Tej Patel - Software Engineer from Mumbai | {title}</title>
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={meta.description} />
