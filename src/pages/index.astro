@@ -23,25 +23,26 @@ const socialLinks = {
     <section>
       <a href={"/"} target="_blank"> </a>
       <h1 class="mb-8 text-2xl font-medium">{title}</h1>
+      <h2 class="sr-only">About</h2>
       <div class="">
         <p class="mt-5 mb-5">{description}</p>
         <p class="mt-5 mb-5"><b>Current</b> • {currentJob}</p>
       </div>
     </section>
     <div class="mt-10 flex gap-5 items-center">
-      <SocialLink href={socialLinks.github}
+      <SocialLink href={socialLinks.github} label="GitHub"
         ><Icon name="fa6-brands:github" class="text-[20px]" /></SocialLink
       >
-      <SocialLink href={socialLinks.linkedIn}
+      <SocialLink href={socialLinks.linkedIn} label="LinkedIn"
         ><Icon name="fa6-brands:linkedin-in" class="text-[20px]" /></SocialLink
       >
-      <SocialLink href={socialLinks.x}
+      <SocialLink href={socialLinks.x} label="X – Twitter"
         ><Icon name="fa6-brands:x-twitter" class="text-[18px]" /></SocialLink
       >
-      <SocialLink href={socialLinks.email}
+      <SocialLink href={socialLinks.email} label="Email"
         ><Icon name="ic:baseline-mail" class="text-[22px]" /></SocialLink
       >
-      <SocialLink href={socialLinks.hashnode}
+      <SocialLink href={socialLinks.hashnode} label="Hashnode"
         ><Icon name="fa6-brands:hashnode" class="text-[18px]" /></SocialLink
       >
     </div>

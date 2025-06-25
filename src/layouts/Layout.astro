@@ -36,11 +36,11 @@ const bgColor = "oklch(20.8% 0.042 265.755)";
       media="print"
       onload="this.media='all'"
     />
+    <!-- HTML Meta Tags -->
     <title>Tej Patel - Software Engineer from Mumbai | {title}</title>
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={meta.description} />
     <meta name="author" content={meta.author} />
-
     <!-- Notification/Status Bar color for dark theme -->
     <!-- Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content={bgColor} />
@@ -48,7 +48,76 @@ const bgColor = "oklch(20.8% 0.042 265.755)";
     <meta name="msapplication-navbutton-color" content={bgColor} />
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={"https://tejpatel.in"} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:url" content={"https://tejpatel.in"} />
+    <meta property="og:image" content={"https://tejpatel.in/og-image.png"} />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="tejpatel.in" />
+    <meta property="twitter:url" content="https://tejpatel.in" />
+    <meta
+      name="twitter:title"
+      content="Tej Patel - Software Engineer from Mumbai | Home"
+    />
+    <meta
+      name="twitter:description"
+      content="Tej Patel is a skilled Software Engineer from Mumbai, focused on building high-performance user interfaces using React and modern frontend stacks"
+    />
+    <meta name="twitter:image" content={"https://tejpatel.in/og-image.png"} />
+
+    <!-- Structured Data -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": `${import.meta.env.SITE}#person`,
+            name: "Tej Patel",
+            jobTitle: "Senior Frontend Engineer",
+            url: import.meta.env.SITE,
+            sameAs: [
+              "https://github.com/tejpatelme",
+              "http://linkedin.com/in/tejpatelme",
+              "http://x.com/tejpatel_me",
+              "https://tejpatel.hashnode.dev",
+            ],
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Mumbai",
+              addressCountry: "IN",
+            },
+          },
+          {
+            "@type": "WebSite",
+            "@id": `${import.meta.env.SITE}#website`,
+            url: import.meta.env.SITE,
+            name: meta.title,
+            creator: { "@id": `${import.meta.env.SITE}#person` },
+            potentialAction: {
+              "@type": "SearchAction",
+              target: {
+                "@type": "EntryPoint",
+                urlTemplate: `${import.meta.env.SITE}/?s={search_term_string}`,
+              },
+              "query-input": "required name=search_term_string",
+            },
+          },
+        ],
+      })}
+    />
   </head>
+  );
+  
   <body class="bg-slate-900">
     <slot />
   </body>
