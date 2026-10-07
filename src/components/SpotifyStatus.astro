@@ -1,0 +1,16 @@
+---
+import NowPlaying from "./NowPlaying.astro";
+import { getNowPlaying } from "../lib/spotify";
+
+// Cache the island response at Netlify's edge so most visitors don't wait on
+// Spotify. stale-while-revalidate serves the cached copy while it refreshes.
+Astro.response.headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+Astro.response.headers.set(
+  "Netlify-CDN-Cache-Control",
+  "public, durable, s-maxage=30, stale-while-revalidate=300",
+);
+
+const track = await getNowPlaying();
+---
+
+{track && <NowPlaying track={track} />}

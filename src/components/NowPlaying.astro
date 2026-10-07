@@ -1,0 +1,100 @@
+---
+import { Icon } from "astro-icon/components";
+import type { Track } from "../lib/spotify";
+
+interface Props {
+  track: Track;
+}
+
+const { track } = Astro.props;
+---
+
+<!-- Mirrors the "Current • …" line so it reads as part of the bio -->
+<p class="mt-5 mb-5">
+  <b>{track.isPlaying ? "Listening" : "Last played"}</b>
+  {
+    track.isPlaying && (
+      <span class="bars ml-1" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </span>
+    )
+  }
+  •{" "}
+  <a
+    href={track.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="group inline"
+  >
+    {
+      track.albumArt ? (
+        <img
+          src={track.albumArt.url}
+          width={20}
+          height={20}
+          alt=""
+          decoding="async"
+          class="cover inline-block size-5 rounded-[4px] align-[-4px] mr-1.5"
+        />
+      ) : (
+        <Icon
+          name="fa6-brands:spotify"
+          class="inline-block text-[16px] align-[-2px] mr-1.5"
+        />
+      )
+    }
+    <span
+      class="underline decoration-neutral-600 underline-offset-4 transition-colors group-hover:decoration-neutral-200"
+      >{track.title}</span
+    >
+  </a>
+  <span class="text-neutral-400"> by {track.artists}</span>
+</p>
+
+<style>
+  .cover {
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 0.08);
+  }
+
+  .bars {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 11px;
+  }
+
+  .bars span {
+    width: 2px;
+    height: 100%;
+    border-radius: 1px;
+    background: var(--color-neutral-400);
+    transform-origin: bottom;
+    animation: bounce 0.9s ease-in-out infinite alternate;
+  }
+
+  .bars span:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+
+  .bars span:nth-child(3) {
+    animation-delay: -0.6s;
+  }
+
+  @keyframes bounce {
+    from {
+      transform: scaleY(0.3);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bars span {
+      animation: none;
+      transform: scaleY(0.6);
+    }
+  }
+</style>

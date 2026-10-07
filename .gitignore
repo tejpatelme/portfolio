@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 #cursor
 .history
+# Local Netlify folder
+.netlify
