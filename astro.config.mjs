@@ -12,6 +12,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  // "server" so the Netlify adapter emits the SSR function the Spotify server
+  // island needs; pages opt back into static HTML with `prerender = true`.
+  output: "server",
   adapter: netlify(),
   integrations: [icon(), sitemap()],
   env: {

@@ -4,6 +4,9 @@ import SpotifyStatus from "../components/SpotifyStatus.astro";
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 
+// Static HTML; only the Spotify server island below is rendered on demand.
+export const prerender = true;
+
 const title = "Hello, I'm Tej Patel.";
 const description =
   "I’m a senior frontend guy from Mumbai. I spend my days building fast, smooth apps and websites that just work. Been doing this for a while now—figuring out what looks good, feels good, and runs like butter. I like keeping things clean, simple, and fun to use.";
